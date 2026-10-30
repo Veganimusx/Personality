@@ -1,20 +1,16 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# UNITAP - Gestión de Uniformes y Órdenes de Trabajo (Flutter Material 3)
 
-# Run and deploy your AI Studio app
+Aplicación Flutter completa para la administración y control de uniformes, inventario, anticipos, desglose de IVA (16%), seguimiento de facturación CFDI y generación de recibos PDF con envío a WhatsApp.
 
-This contains everything you need to run your app locally.
+## Estructura del Proyecto
+- `lib/main.dart`: Código Flutter 100% funcional con Material 3.
+- `pubspec.yaml`: Dependencias de PDF, printing, share_plus, image_picker y Supabase.
+- `android/`: Configuración nativa con ID `com.unitap.app` y permisos.
+- `.github/workflows/build_apk.yml`: Compilación automática del APK release en GitHub Actions.
 
-View your app in AI Studio: https://ai.studio/apps/5fc42f89-d7af-4c29-a7be-c8b694372d41
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Cómo compilar el APK Release
+```bash
+flutter pub get
+flutter build apk --release
+```
+El APK compilado estará en `build/app/outputs/flutter-apk/app-release.apk`.
