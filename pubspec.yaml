@@ -1,0 +1,27 @@
+name: unitap_uniformes
+description: "App de gestión de uniformes y órdenes de trabajo UNITAP"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pdf: ^3.10.8
+  printing: ^5.11.1
+  path_provider: ^2.1.2
+  share_plus: ^7.2.2
+  url_launcher: ^6.2.5
+  image_picker: ^1.0.7
+  supabase_flutter: ^2.3.4
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
