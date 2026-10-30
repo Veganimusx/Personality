@@ -1,0 +1,6 @@
+{
+  "name": "UNITAP - Uniformes & Órdenes de Trabajo",
+  "description": "Sistema de gestión de uniformes UNITAP: órdenes de trabajo, inventario, control de anticipos, generación de notas PDF y envío por WhatsApp (Flutter & Web).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
