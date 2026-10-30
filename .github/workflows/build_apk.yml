@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build APK (Release sin firma estricta)
+      - name: Build APK
         run: flutter build apk --release --no-tree-shake-icons
 
       - name: Upload APK Artifact
