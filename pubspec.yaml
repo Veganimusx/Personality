@@ -1,29 +1,22 @@
-name: unitap_uniformes_app
-description: UNITAP - Sistema de Gestión de Uniformes y Órdenes de Trabajo con Flutter (Material 3), PDF de 2 Hojas, Ubicación de Logo, Imagen de Diseño y WhatsApp Share.
-publish_to: 'none'
+name: unitap_uniformes
+description: "App de gestión de uniformes y órdenes de trabajo UNITAP"
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  # Generación de documentos PDF multi-página
   pdf: ^3.10.8
-  # Almacenamiento temporal para archivos PDF en el dispositivo
-  path_provider: ^2.1.2
-  # Compartir archivos y PDF directamente por WhatsApp y apps nativas
-  share_plus: ^9.0.0
-  # Impresión y visor PDF
   printing: ^5.11.1
-  # Abrir URLs y enlaces directos de WhatsApp
-  url_launcher: ^6.3.0
-  # Selección y carga de fotos de diseño y logotipo
-  image_picker: ^1.1.2
-  # Integración con Supabase
-  supabase_flutter: ^2.8.0
-  intl: ^0.19.0
+  path_provider: ^2.1.2
+  share_plus: ^7.2.2
+  url_launcher: ^6.2.5
+  image_picker: ^1.0.7
+  supabase_flutter: ^2.3.4
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
