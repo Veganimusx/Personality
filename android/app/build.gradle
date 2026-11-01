@@ -57,4 +57,3 @@ flutter {
 }
 
 dependencies {}
-android.overrideVersionCheck=true
