@@ -1,6 +1,6 @@
 <!-- android/app/src/main/AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.unitap.uniformes_app">
+    package="com.unitap.app">
 
     <!-- Permisos para Supabase, descargas e Internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
