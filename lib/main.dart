@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_negocio.nombre, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+        title: Text(_negocio.nombre, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 16)),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         toolbarHeight: 45,
         actions: [
@@ -328,14 +328,14 @@ class VistaOrdenesActivas extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(orden.cliente, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                            Text(orden.cliente, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 14)),
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                               decoration: BoxDecoration(
                                 color: orden.estatusProduccion == 'Pendiente de Surtir' ? Colors.orange[100] : Colors.blue[100],
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              child: Text(orden.estatusProduccion, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+                              child: Text(orden.estatusProduccion, style: const TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)),
                             ),
                           ],
                         ),
@@ -347,9 +347,9 @@ class VistaOrdenesActivas extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Total: \$${orden.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                            Text('Total: \$${orden.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
                             Text('Anticipo: \$${orden.anticipo.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12)),
-                            Text('Resto: \$${orden.restante.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.red)),
+                            Text('Resto: \$${orden.restante.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold, color: Colors.red)),
                           ],
                         ),
                         const SizedBox(height: 6),
@@ -431,7 +431,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(ordenExistente == null ? 'Nueva Orden' : 'Editar Orden', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                    Text(ordenExistente == null ? 'Nueva Orden' : 'Editar Orden', style: const TextStyle(fontSize: 15, fontWeight: pw.FontWeight.bold)),
                     const SizedBox(height: 4),
                     TextField(controller: clienteController, decoration: const InputDecoration(labelText: 'Cliente', isDense: true)),
                     TextField(controller: telefonoController, decoration: const InputDecoration(labelText: 'Teléfono (WhatsApp)', isDense: true), keyboardType: TextInputType.phone),
@@ -440,7 +440,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Artículos', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                        const Text('Artículos', style: TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
                         OutlinedButton.icon(
                           onPressed: () => _mostrarDialogoAgregarItem(context, setStateModal, listaItems),
                           icon: const Icon(Icons.add, size: 12),
@@ -616,7 +616,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('Logos / Extras', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                          const Text('Logos / Extras', style: TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12)),
                           TextButton.icon(
                             onPressed: () => _mostrarDialogoLogoExtra(parentContext, setStateDialog, listaLogosItem),
                             icon: const Icon(Icons.add, size: 12),
@@ -780,7 +780,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
               pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
-                  pw.Text(negocio.nombre, style: pw.TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  pw.Text(negocio.nombre, style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
                   pw.Text("Tel: ${negocio.telefono}", style: const pw.TextStyle(fontSize: 9)),
                   pw.Text(negocio.direccion, style: const pw.TextStyle(fontSize: 9)),
                 ],
@@ -789,12 +789,12 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
             ],
           ),
           pw.Divider(thickness: 1.5),
-          pw.Text("NOTA DE PEDIDO", style: pw.TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+          pw.Text("NOTA DE PEDIDO", style: pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
           pw.Text("Cliente: ${orden.cliente} | Fecha: ${orden.fecha.day}/${orden.fecha.month}/${orden.fecha.year}", style: const pw.TextStyle(fontSize: 10)),
           pw.SizedBox(height: 8),
           pw.Table.fromTextArray(
             headers: ['Cant.', 'Prenda', 'P. Unitario', 'Subtotal'],
-            headerStyle: pw.TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+            headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10),
             cellStyle: const pw.TextStyle(fontSize: 9),
             data: orden.items.map((i) => [
               '${i.cantidad}',
@@ -813,9 +813,9 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
             pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Subtotal:", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.subtotalGeneral.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
             pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("IVA (16%):", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.montoIva.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
           ],
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.TextStyle(fontSize: 10, fontWeight: FontWeight.bold)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: FontWeight.bold))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold))]),
           pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Anticipo Recibido:", style: pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.anticipo.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 9))]),
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: PdfColors.red))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red))]),
         ],
       ),
     ));
@@ -825,7 +825,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
       build: (context) => pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
-          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
           pw.Text("Cliente: ${orden.cliente}", style: const pw.TextStyle(fontSize: 9)),
           pw.Divider(),
           pw.SizedBox(height: 6),
@@ -849,7 +849,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text("Prenda: ${item.productoNameDetalle()}", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
-                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: PdfColors.blue800)),
+                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10, color: PdfColors.blue800)),
                       pw.Text("Detalle: ${logo.descripcion}", style: const pw.TextStyle(fontSize: 8)),
                     ],
                   ),
@@ -892,7 +892,7 @@ class VistaPendientesSurtir extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: ListTile(
                   dense: true,
-                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
                   subtitle: Text('Falta stock para esta orden.', style: const TextStyle(fontSize: 11)),
                   trailing: ElevatedButton(
                     onPressed: () {
@@ -930,7 +930,7 @@ class VistaFacturasPendientes extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: ListTile(
                   dense: true,
-                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
                   subtitle: Text('Total con IVA: \$${orden.total.toStringAsFixed(2)}\nRequiere Factura CFDI', style: const TextStyle(fontSize: 11)),
                   isThreeLine: true,
                   trailing: ElevatedButton(
@@ -995,9 +995,9 @@ class _VistaHistorialMesState extends State<VistaHistorialMes> {
                     final o = ordenesFiltradas[index];
                     return ListTile(
                       dense: true,
-                      title: Text(o.cliente, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                      title: Text(o.cliente, style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
                       subtitle: Text('${o.items.length} artículos - ${o.fecha.day}/${o.fecha.month}/${o.fecha.year}', style: const TextStyle(fontSize: 11)),
-                      trailing: Text('\$${o.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                      trailing: Text('\$${o.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
                     );
                   },
                 ),
@@ -1024,7 +1024,7 @@ class VistaInventario extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: ListTile(
             dense: true,
-            title: Text(p.nombre, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+            title: Text(p.nombre, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
             subtitle: Text('Base: \$${p.precioBase.toStringAsFixed(2)} | Colores: ${p.coloresDisponibles.join(", ")}', style: const TextStyle(fontSize: 11)),
             trailing: Chip(
               label: Text('Stock: ${p.stockGeneral}', style: const TextStyle(fontSize: 10)),
