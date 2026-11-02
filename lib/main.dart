@@ -187,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return StatefulBuilder(
           builder: (context, setStateDialog) {
             return AlertDialog(
-              title: const Text('Configurar Negocio', style: TextStyle(fontSize: 16)),
+              title: const Text('Configurar Negocio', style: pw.TextStyle(fontSize: 16)),
               content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -205,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         }
                       },
                       icon: const Icon(Icons.image, size: 16),
-                      label: Text(tempLogo == null ? 'Subir Logotipo' : 'Logo Seleccionado', style: const TextStyle(fontSize: 12)),
+                      label: Text(tempLogo == null ? 'Subir Logotipo' : 'Logo Seleccionado', style: const pw.TextStyle(fontSize: 12)),
                     ),
                   ],
                 ),
@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(_negocio.nombre, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 16)),
+        title: Text(_negocio.nombre, style: const pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 16)),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         toolbarHeight: 45,
         actions: [
@@ -312,7 +312,7 @@ class VistaOrdenesActivas extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ordenes.isEmpty
-          ? const Center(child: Text('No hay órdenes activas.', style: TextStyle(fontSize: 13)))
+          ? const Center(child: Text('No hay órdenes activas.', style: pw.TextStyle(fontSize: 13)))
           : ListView.builder(
               itemCount: ordenes.length,
               itemBuilder: (context, index) {
@@ -328,28 +328,28 @@ class VistaOrdenesActivas extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(orden.cliente, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 14)),
+                            Text(orden.cliente, style: const pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 14)),
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                               decoration: BoxDecoration(
                                 color: orden.estatusProduccion == 'Pendiente de Surtir' ? Colors.orange[100] : Colors.blue[100],
                                 borderRadius: BorderRadius.circular(4),
                               ),
-                              child: Text(orden.estatusProduccion, style: const TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)),
+                              child: Text(orden.estatusProduccion, style: const pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)),
                             ),
                           ],
                         ),
                         const SizedBox(height: 4),
-                        ...orden.items.map((item) => Text('• ${item.cantidad}x ${item.productoNameDetalle()} (\$${item.precioUnitarioFinal.toStringAsFixed(2)})', style: const TextStyle(fontSize: 12))),
-                        if (orden.costoEnvio > 0) Text('• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}', style: const TextStyle(fontSize: 11)),
-                        if (orden.aplicaIva) const Text('• Incluye IVA (16%)', style: TextStyle(fontSize: 11, color: Colors.blueGrey)),
+                        ...orden.items.map((item) => Text('• ${item.cantidad}x ${item.productoNameDetalle()} (\$${item.precioUnitarioFinal.toStringAsFixed(2)})', style: const pw.TextStyle(fontSize: 12))),
+                        if (orden.costoEnvio > 0) Text('• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 11)),
+                        if (orden.aplicaIva) const Text('• Incluye IVA (16%)', style: pw.TextStyle(fontSize: 11, color: Colors.blueGrey)),
                         const Divider(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Total: \$${orden.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
-                            Text('Anticipo: \$${orden.anticipo.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12)),
-                            Text('Resto: \$${orden.restante.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold, color: Colors.red)),
+                            Text('Total: \$${orden.total.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
+                            Text('Anticipo: \$${orden.anticipo.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 12)),
+                            Text('Resto: \$${orden.restante.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold, color: Colors.red)),
                           ],
                         ),
                         const SizedBox(height: 6),
@@ -369,7 +369,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                                 onActualizar();
                               },
                               icon: const Icon(Icons.update, size: 14),
-                              label: Text(orden.estatusProduccion == 'Pendiente de Surtir' ? 'Surtir' : 'Avanzar', style: const TextStyle(fontSize: 11)),
+                              label: Text(orden.estatusProduccion == 'Pendiente de Surtir' ? 'Surtir' : 'Avanzar', style: const pw.TextStyle(fontSize: 11)),
                               style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0), minimumSize: const Size(0, 30)),
                             ),
                             const SizedBox(width: 4),
@@ -431,7 +431,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(ordenExistente == null ? 'Nueva Orden' : 'Editar Orden', style: const TextStyle(fontSize: 15, fontWeight: pw.FontWeight.bold)),
+                    Text(ordenExistente == null ? 'Nueva Orden' : 'Editar Orden', style: const pw.TextStyle(fontSize: 15, fontWeight: pw.FontWeight.bold)),
                     const SizedBox(height: 4),
                     TextField(controller: clienteController, decoration: const InputDecoration(labelText: 'Cliente', isDense: true)),
                     TextField(controller: telefonoController, decoration: const InputDecoration(labelText: 'Teléfono (WhatsApp)', isDense: true), keyboardType: TextInputType.phone),
@@ -440,11 +440,11 @@ class VistaOrdenesActivas extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Artículos', style: TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
+                        const Text('Artículos', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
                         OutlinedButton.icon(
                           onPressed: () => _mostrarDialogoAgregarItem(context, setStateModal, listaItems),
                           icon: const Icon(Icons.add, size: 12),
-                          label: const Text('Añadir', style: TextStyle(fontSize: 11)),
+                          label: const Text('Añadir', style: pw.TextStyle(fontSize: 11)),
                           style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 0), minimumSize: const Size(0, 26)),
                         ),
                       ],
@@ -453,7 +453,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                     if (listaItems.isEmpty)
                       const Padding(
                         padding: EdgeInsets.all(4.0),
-                        child: Text('Sin artículos agregados.', style: TextStyle(color: Colors.grey, fontSize: 11)),
+                        child: Text('Sin artículos agregados.', style: pw.TextStyle(color: Colors.grey, fontSize: 11)),
                       ),
 
                     ...listaItems.asMap().entries.map((entry) {
@@ -462,8 +462,8 @@ class VistaOrdenesActivas extends StatelessWidget {
                       return ListTile(
                         dense: true,
                         contentPadding: EdgeInsets.zero,
-                        title: Text('${item.cantidad}x ${item.productoNameDetalle()}', style: const TextStyle(fontSize: 12)),
-                        subtitle: Text('P. Unit: \$${item.precioUnitarioFinal.toStringAsFixed(2)} | Sub: \$${item.subtotal.toStringAsFixed(2)}', style: const TextStyle(fontSize: 11)),
+                        title: Text('${item.cantidad}x ${item.productoNameDetalle()}', style: const pw.TextStyle(fontSize: 12)),
+                        subtitle: Text('P. Unit: \$${item.precioUnitarioFinal.toStringAsFixed(2)} | Sub: \$${item.subtotal.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 11)),
                         trailing: IconButton(
                           constraints: const BoxConstraints(),
                           padding: EdgeInsets.zero,
@@ -480,14 +480,14 @@ class VistaOrdenesActivas extends StatelessWidget {
                     SwitchListTile(
                       dense: true,
                       contentPadding: EdgeInsets.zero,
-                      title: const Text('Agregar IVA (16%)', style: TextStyle(fontSize: 12)),
+                      title: const Text('Agregar IVA (16%)', style: pw.TextStyle(fontSize: 12)),
                       value: aplicaIva,
                       onChanged: (val) => setStateModal(() => aplicaIva = val),
                     ),
                     SwitchListTile(
                       dense: true,
                       contentPadding: EdgeInsets.zero,
-                      title: const Text('Requiere Factura (CFDI)', style: TextStyle(fontSize: 12)),
+                      title: const Text('Requiere Factura (CFDI)', style: pw.TextStyle(fontSize: 12)),
                       value: requiereFactura,
                       onChanged: (val) => setStateModal(() => requiereFactura = val),
                     ),
@@ -531,7 +531,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                         onActualizar();
                       },
                       style: ElevatedButton.styleFrom(minimumSize: const Size.fromHeight(38)),
-                      child: Text(ordenExistente == null ? 'Guardar Orden' : 'Actualizar Orden', style: const TextStyle(fontSize: 13)),
+                      child: Text(ordenExistente == null ? 'Guardar Orden' : 'Actualizar Orden', style: const pw.TextStyle(fontSize: 13)),
                     ),
                     const SizedBox(height: 10),
                   ],
@@ -559,7 +559,7 @@ class VistaOrdenesActivas extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setStateDialog) {
             return AlertDialog(
-              title: const Text('Agregar Artículo', style: TextStyle(fontSize: 15)),
+              title: const Text('Agregar Artículo', style: pw.TextStyle(fontSize: 15)),
               content: SizedBox(
                 width: MediaQuery.of(parentContext).size.width * 0.85,
                 child: SingleChildScrollView(
@@ -569,8 +569,8 @@ class VistaOrdenesActivas extends StatelessWidget {
                     children: [
                       DropdownButtonFormField<ProductoBase>(
                         isExpanded: true,
-                        hint: const Text('Modelo de Prenda', style: TextStyle(fontSize: 12)),
-                        items: inventario.map((p) => DropdownMenuItem(value: p, child: Text('${p.nombre} (\$${p.precioBase})', style: const TextStyle(fontSize: 12)))).toList(),
+                        hint: const Text('Modelo de Prenda', style: pw.TextStyle(fontSize: 12)),
+                        items: inventario.map((p) => DropdownMenuItem(value: p, child: Text('${p.nombre} (\$${p.precioBase})', style: const pw.TextStyle(fontSize: 12)))).toList(),
                         onChanged: (val) {
                           setStateDialog(() {
                             productoSeleccionado = val;
@@ -590,8 +590,8 @@ class VistaOrdenesActivas extends StatelessWidget {
                               child: DropdownButtonFormField<String>(
                                 isExpanded: true,
                                 value: colorSeleccionado.isEmpty ? null : colorSeleccionado,
-                                hint: const Text('Color', style: TextStyle(fontSize: 12)),
-                                items: productoSeleccionado!.coloresDisponibles.map((c) => DropdownMenuItem(value: c, child: Text(c, style: const TextStyle(fontSize: 12)))).toList(),
+                                hint: const Text('Color', style: pw.TextStyle(fontSize: 12)),
+                                items: productoSeleccionado!.coloresDisponibles.map((c) => DropdownMenuItem(value: c, child: Text(c, style: const pw.TextStyle(fontSize: 12)))).toList(),
                                 onChanged: (val) => setStateDialog(() => colorSeleccionado = val!),
                               ),
                             ),
@@ -600,8 +600,8 @@ class VistaOrdenesActivas extends StatelessWidget {
                               child: DropdownButtonFormField<String>(
                                 isExpanded: true,
                                 value: tallaSeleccionada.isEmpty ? null : tallaSeleccionada,
-                                hint: const Text('Talla', style: TextStyle(fontSize: 12)),
-                                items: productoSeleccionado!.tallasDisponibles.map((t) => DropdownMenuItem(value: t, child: Text(t, style: const TextStyle(fontSize: 12)))).toList(),
+                                hint: const Text('Talla', style: pw.TextStyle(fontSize: 12)),
+                                items: productoSeleccionado!.tallasDisponibles.map((t) => DropdownMenuItem(value: t, child: Text(t, style: const pw.TextStyle(fontSize: 12)))).toList(),
                                 onChanged: (val) => setStateDialog(() => tallaSeleccionada = val!),
                               ),
                             ),
@@ -616,11 +616,11 @@ class VistaOrdenesActivas extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('Logos / Extras', style: TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12)),
+                          const Text('Logos / Extras', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12)),
                           TextButton.icon(
                             onPressed: () => _mostrarDialogoLogoExtra(parentContext, setStateDialog, listaLogosItem),
                             icon: const Icon(Icons.add, size: 12),
-                            label: const Text('Logo', style: TextStyle(fontSize: 11)),
+                            label: const Text('Logo', style: pw.TextStyle(fontSize: 11)),
                             style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: const Size(0, 24)),
                           )
                         ],
@@ -631,8 +631,8 @@ class VistaOrdenesActivas extends StatelessWidget {
                         return ListTile(
                           dense: true,
                           contentPadding: EdgeInsets.zero,
-                          title: Text('${logo.ubicacion}: ${logo.descripcion}', style: const TextStyle(fontSize: 11)),
-                          subtitle: Text('Suma: +\$${logo.costoExtra.toStringAsFixed(2)}', style: const TextStyle(fontSize: 10)),
+                          title: Text('${logo.ubicacion}: ${logo.descripcion}', style: const pw.TextStyle(fontSize: 11)),
+                          subtitle: Text('Suma: +\$${logo.costoExtra.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 10)),
                           trailing: IconButton(
                             constraints: const BoxConstraints(),
                             padding: EdgeInsets.zero,
@@ -646,7 +646,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                 ),
               ),
               actions: [
-                TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancelar', style: TextStyle(fontSize: 12))),
+                TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancelar', style: pw.TextStyle(fontSize: 12))),
                 ElevatedButton(
                   onPressed: () {
                     if (productoSeleccionado == null) return;
@@ -668,7 +668,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                     });
                     Navigator.pop(context);
                   },
-                  child: const Text('Agregar', style: TextStyle(fontSize: 12)),
+                  child: const Text('Agregar', style: pw.TextStyle(fontSize: 12)),
                 ),
               ],
             );
@@ -691,7 +691,7 @@ class VistaOrdenesActivas extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setStateDialogSub) {
             return AlertDialog(
-              title: const Text('Logo / Nombre Extra', style: TextStyle(fontSize: 14)),
+              title: const Text('Logo / Nombre Extra', style: pw.TextStyle(fontSize: 14)),
               content: SizedBox(
                 width: MediaQuery.of(parentContext).size.width * 0.7,
                 child: SingleChildScrollView(
@@ -701,7 +701,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                       DropdownButtonFormField<String>(
                         isExpanded: true,
                         value: ubicacion,
-                        items: ['Pecho Izquierdo', 'Pecho Derecho', 'Espalda', 'Manga Izq', 'Manga Der', 'Nombre Personalizado'].map((u) => DropdownMenuItem(value: u, child: Text(u, style: const TextStyle(fontSize: 12)))).toList(),
+                        items: ['Pecho Izquierdo', 'Pecho Derecho', 'Espalda', 'Manga Izq', 'Manga Der', 'Nombre Personalizado'].map((u) => DropdownMenuItem(value: u, child: Text(u, style: const pw.TextStyle(fontSize: 12)))).toList(),
                         onChanged: (val) => setStateDialogSub(() => ubicacion = val!),
                       ),
                       TextField(controller: descController, decoration: const InputDecoration(labelText: 'Descripción', isDense: true)),
@@ -716,14 +716,14 @@ class VistaOrdenesActivas extends StatelessWidget {
                           }
                         },
                         icon: const Icon(Icons.camera_alt, size: 14),
-                        label: Text(imgPath == null ? 'Adjuntar Imagen' : 'Imagen Adjunta ✓', style: const TextStyle(fontSize: 11)),
+                        label: Text(imgPath == null ? 'Adjuntar Imagen' : 'Imagen Adjunta ✓', style: const pw.TextStyle(fontSize: 11)),
                       ),
                     ],
                   ),
                 ),
               ),
               actions: [
-                TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancelar', style: TextStyle(fontSize: 12))),
+                TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancelar', style: pw.TextStyle(fontSize: 12))),
                 ElevatedButton(
                   onPressed: () {
                     double costo = double.tryParse(costoController.text) ?? 0.0;
@@ -737,7 +737,7 @@ class VistaOrdenesActivas extends StatelessWidget {
                     });
                     Navigator.pop(context);
                   },
-                  child: const Text('Añadir', style: TextStyle(fontSize: 12)),
+                  child: const Text('Añadir', style: pw.TextStyle(fontSize: 12)),
                 ),
               ],
             );
@@ -780,22 +780,22 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
               pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
-                  pw.Text(negocio.nombre, style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
-                  pw.Text("Tel: ${negocio.telefono}", style: const pw.TextStyle(fontSize: 9)),
-                  pw.Text(negocio.direccion, style: const pw.TextStyle(fontSize: 9)),
+                  pw.Text(negocio.nombre, style: pw.pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
+                  pw.Text("Tel: ${negocio.telefono}", style: const pw.pw.TextStyle(fontSize: 9)),
+                  pw.Text(negocio.direccion, style: const pw.pw.TextStyle(fontSize: 9)),
                 ],
               ),
               if (logoNegocioImage != null) pw.Container(width: 40, height: 40, child: pw.Image(logoNegocioImage)),
             ],
           ),
           pw.Divider(thickness: 1.5),
-          pw.Text("NOTA DE PEDIDO", style: pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
-          pw.Text("Cliente: ${orden.cliente} | Fecha: ${orden.fecha.day}/${orden.fecha.month}/${orden.fecha.year}", style: const pw.TextStyle(fontSize: 10)),
+          pw.Text("NOTA DE PEDIDO", style: pw.pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
+          pw.Text("Cliente: ${orden.cliente} | Fecha: ${orden.fecha.day}/${orden.fecha.month}/${orden.fecha.year}", style: const pw.pw.TextStyle(fontSize: 10)),
           pw.SizedBox(height: 8),
           pw.Table.fromTextArray(
             headers: ['Cant.', 'Prenda', 'P. Unitario', 'Subtotal'],
-            headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10),
-            cellStyle: const pw.TextStyle(fontSize: 9),
+            headerStyle: pw.pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10),
+            cellStyle: const pw.pw.TextStyle(fontSize: 9),
             data: orden.items.map((i) => [
               '${i.cantidad}',
               i.productoNameDetalle(),
@@ -805,17 +805,17 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
           ),
           if (orden.costoEnvio > 0) ...[
             pw.SizedBox(height: 4),
-            pw.Text("Costo de Envío: \$${orden.costoEnvio.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9)),
+            pw.Text("Costo de Envío: \$${orden.costoEnvio.toStringAsFixed(2)}", style: const pw.pw.TextStyle(fontSize: 9)),
           ],
           pw.Spacer(),
           pw.Divider(),
           if (orden.aplicaIva) ...[
-            pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Subtotal:", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.subtotalGeneral.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
-            pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("IVA (16%):", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.montoIva.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
+            pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Subtotal:", style: const pw.pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.subtotalGeneral.toStringAsFixed(2)}", style: const pw.pw.TextStyle(fontSize: 9))]),
+            pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("IVA (16%):", style: const pw.pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.montoIva.toStringAsFixed(2)}", style: const pw.pw.TextStyle(fontSize: 9))]),
           ],
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold))]),
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Anticipo Recibido:", style: pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.anticipo.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 9))]),
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Anticipo Recibido:", style: pw.pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.anticipo.toStringAsFixed(2)}", style: pw.pw.TextStyle(fontSize: 9))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: PdfColors.red))]),
         ],
       ),
     ));
@@ -825,8 +825,8 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
       build: (context) => pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
-          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
-          pw.Text("Cliente: ${orden.cliente}", style: const pw.TextStyle(fontSize: 9)),
+          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
+          pw.Text("Cliente: ${orden.cliente}", style: const pw.pw.TextStyle(fontSize: 9)),
           pw.Divider(),
           pw.SizedBox(height: 6),
           ...orden.items.expand((item) => item.logotiposExtras.map((logo) {
@@ -848,9 +848,9 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
                   pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
-                      pw.Text("Prenda: ${item.productoNameDetalle()}", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
-                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10, color: PdfColors.blue800)),
-                      pw.Text("Detalle: ${logo.descripcion}", style: const pw.TextStyle(fontSize: 8)),
+                      pw.Text("Prenda: ${item.productoNameDetalle()}", style: const pw.pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
+                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 10, color: PdfColors.blue800)),
+                      pw.Text("Detalle: ${logo.descripcion}", style: const pw.pw.TextStyle(fontSize: 8)),
                     ],
                   ),
                 ],
@@ -882,7 +882,7 @@ class VistaPendientesSurtir extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ordenes.isEmpty
-        ? const Center(child: Text('No hay piezas pendientes.', style: TextStyle(fontSize: 13)))
+        ? const Center(child: Text('No hay piezas pendientes.', style: pw.TextStyle(fontSize: 13)))
         : ListView.builder(
             itemCount: ordenes.length,
             itemBuilder: (context, index) {
@@ -892,8 +892,8 @@ class VistaPendientesSurtir extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: ListTile(
                   dense: true,
-                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
-                  subtitle: Text('Falta stock para esta orden.', style: const TextStyle(fontSize: 11)),
+                  title: Text('Cliente: ${orden.cliente}', style: const pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
+                  subtitle: Text('Falta stock para esta orden.', style: const pw.TextStyle(fontSize: 11)),
                   trailing: ElevatedButton(
                     onPressed: () {
                       orden.estatusInventario = 'Surtido';
@@ -901,7 +901,7 @@ class VistaPendientesSurtir extends StatelessWidget {
                       onActualizar();
                     },
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0), minimumSize: const Size(0, 26)),
-                    child: const Text('Surtido', style: TextStyle(fontSize: 11)),
+                    child: const Text('Surtido', style: pw.TextStyle(fontSize: 11)),
                   ),
                 ),
               );
@@ -920,7 +920,7 @@ class VistaFacturasPendientes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ordenes.isEmpty
-        ? const Center(child: Text('No hay facturas pendientes de emitir.', style: TextStyle(fontSize: 13)))
+        ? const Center(child: Text('No hay facturas pendientes de emitir.', style: pw.TextStyle(fontSize: 13)))
         : ListView.builder(
             itemCount: ordenes.length,
             itemBuilder: (context, index) {
@@ -930,8 +930,8 @@ class VistaFacturasPendientes extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: ListTile(
                   dense: true,
-                  title: Text('Cliente: ${orden.cliente}', style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
-                  subtitle: Text('Total con IVA: \$${orden.total.toStringAsFixed(2)}\nRequiere Factura CFDI', style: const TextStyle(fontSize: 11)),
+                  title: Text('Cliente: ${orden.cliente}', style: const pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
+                  subtitle: Text('Total con IVA: \$${orden.total.toStringAsFixed(2)}\nRequiere Factura CFDI', style: const pw.TextStyle(fontSize: 11)),
                   isThreeLine: true,
                   trailing: ElevatedButton(
                     onPressed: () {
@@ -939,7 +939,7 @@ class VistaFacturasPendientes extends StatelessWidget {
                       onActualizar();
                     },
                     style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0), minimumSize: const Size(0, 26)),
-                    child: const Text('Facturado', style: TextStyle(fontSize: 11)),
+                    child: const Text('Facturado', style: pw.TextStyle(fontSize: 11)),
                   ),
                 ),
               );
@@ -977,10 +977,10 @@ class _VistaHistorialMesState extends State<VistaHistorialMes> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Mes: ', style: TextStyle(fontSize: 12)),
+              const Text('Mes: ', style: pw.TextStyle(fontSize: 12)),
               DropdownButton<int>(
                 value: _mesSeleccionado,
-                items: List.generate(12, (index) => DropdownMenuItem(value: index + 1, child: Text(_meses[index], style: const TextStyle(fontSize: 12)))),
+                items: List.generate(12, (index) => DropdownMenuItem(value: index + 1, child: Text(_meses[index], style: const pw.TextStyle(fontSize: 12)))),
                 onChanged: (val) => setState(() => _mesSeleccionado = val!),
               ),
             ],
@@ -988,16 +988,16 @@ class _VistaHistorialMesState extends State<VistaHistorialMes> {
         ),
         Expanded(
           child: ordenesFiltradas.isEmpty
-              ? const Center(child: Text('Sin pedidos finalizados.', style: TextStyle(fontSize: 13)))
+              ? const Center(child: Text('Sin pedidos finalizados.', style: pw.TextStyle(fontSize: 13)))
               : ListView.builder(
                   itemCount: ordenesFiltradas.length,
                   itemBuilder: (context, index) {
                     final o = ordenesFiltradas[index];
                     return ListTile(
                       dense: true,
-                      title: Text(o.cliente, style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
-                      subtitle: Text('${o.items.length} artículos - ${o.fecha.day}/${o.fecha.month}/${o.fecha.year}', style: const TextStyle(fontSize: 11)),
-                      trailing: Text('\$${o.total.toStringAsFixed(2)}', style: const TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
+                      title: Text(o.cliente, style: const pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
+                      subtitle: Text('${o.items.length} artículos - ${o.fecha.day}/${o.fecha.month}/${o.fecha.year}', style: const pw.TextStyle(fontSize: 11)),
+                      trailing: Text('\$${o.total.toStringAsFixed(2)}', style: const pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
                     );
                   },
                 ),
@@ -1024,10 +1024,10 @@ class VistaInventario extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: ListTile(
             dense: true,
-            title: Text(p.nombre, style: const TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
-            subtitle: Text('Base: \$${p.precioBase.toStringAsFixed(2)} | Colores: ${p.coloresDisponibles.join(", ")}', style: const TextStyle(fontSize: 11)),
+            title: Text(p.nombre, style: const pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 13)),
+            subtitle: Text('Base: \$${p.precioBase.toStringAsFixed(2)} | Colores: ${p.coloresDisponibles.join(", ")}', style: const pw.TextStyle(fontSize: 11)),
             trailing: Chip(
-              label: Text('Stock: ${p.stockGeneral}', style: const TextStyle(fontSize: 10)),
+              label: Text('Stock: ${p.stockGeneral}', style: const pw.TextStyle(fontSize: 10)),
               backgroundColor: p.stockGeneral < 3 ? Colors.red[100] : Colors.green[100],
               padding: EdgeInsets.zero,
             ),
