@@ -780,7 +780,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
               pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
-                  pw.Text(negocio.nombre, style: pw.TextStyle(fontSize: 16, fontWeight: pw.Font.bold.)),
+                  pw.Text(negocio.nombre, style: pw.TextStyle(fontSize: 16, fontWeight: pw.Font.bold)),
                   pw.Text("Tel: ${negocio.telefono}", style: const pw.TextStyle(fontSize: 9)),
                   pw.Text(negocio.direccion, style: const pw.TextStyle(fontSize: 9)),
                 ],
@@ -789,12 +789,12 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
             ],
           ),
           pw.Divider(thickness: 1.5),
-          pw.Text("NOTA DE PEDIDO", style: pw.TextStyle(fontSize: 12, fontWeight: pw.Font.bold.)),
+          pw.Text("NOTA DE PEDIDO", style: pw.TextStyle(fontSize: 12, fontWeight: pw.Font.bold)),
           pw.Text("Cliente: ${orden.cliente} | Fecha: ${orden.fecha.day}/${orden.fecha.month}/${orden.fecha.year}", style: const pw.TextStyle(fontSize: 10)),
           pw.SizedBox(height: 8),
           pw.Table.fromTextArray(
             headers: ['Cant.', 'Prenda', 'P. Unitario', 'Subtotal'],
-            headerStyle: pw.TextStyle(fontWeight: pw.Font.bold., fontSize: 10),
+            headerStyle: pw.TextStyle(fontWeight: pw.Font.bold, fontSize: 10),
             cellStyle: const pw.TextStyle(fontSize: 9),
             data: orden.items.map((i) => [
               '${i.cantidad}',
@@ -813,9 +813,9 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
             pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Subtotal:", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.subtotalGeneral.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
             pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("IVA (16%):", style: const pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.montoIva.toStringAsFixed(2)}", style: const pw.TextStyle(fontSize: 9))]),
           ],
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold.)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold.))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Total de la Orden:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold)), pw.Text("\$${orden.total.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold))]),
           pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Anticipo Recibido:", style: pw.TextStyle(fontSize: 9)), pw.Text("\$${orden.anticipo.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 9))]),
-          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold., color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold., color: PdfColors.red))]),
+          pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [pw.Text("Restante a Pagar:", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold, color: PdfColors.red)), pw.Text("\$${orden.restante.toStringAsFixed(2)}", style: pw.TextStyle(fontSize: 10, fontWeight: pw.Font.bold, color: PdfColors.red))]),
         ],
       ),
     ));
@@ -825,7 +825,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
       build: (context) => pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
-          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.TextStyle(fontSize: 14, fontWeight: pw.Font.bold.)),
+          pw.Text("GUÍA DE PRODUCCIÓN", style: pw.TextStyle(fontSize: 14, fontWeight: pw.Font.bold)),
           pw.Text("Cliente: ${orden.cliente}", style: const pw.TextStyle(fontSize: 9)),
           pw.Divider(),
           pw.SizedBox(height: 6),
@@ -849,7 +849,7 @@ ${orden.costoEnvio > 0 ? '• Envío: \$${orden.costoEnvio.toStringAsFixed(2)}\n
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text("Prenda: ${item.productoNameDetalle()}", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
-                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.TextStyle(fontWeight: pw.Font.bold., fontSize: 10, color: PdfColors.blue800)),
+                      pw.Text("Ubicación: ${logo.ubicacion.toUpperCase()}", style: pw.TextStyle(fontWeight: pw.Font.bold, fontSize: 10, color: PdfColors.blue800)),
                       pw.Text("Detalle: ${logo.descripcion}", style: const pw.TextStyle(fontSize: 8)),
                     ],
                   ),
