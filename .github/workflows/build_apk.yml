@@ -33,7 +33,10 @@ jobs:
 
       - name: Build APK
         run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -v
-- name: Upload APK artifact
+      - name: Build APK
+        run: flutter build apk --release --no-tree-shake-icons --android-skip-build-dependency-validation -v
+
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: release-apk
