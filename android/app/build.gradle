@@ -62,3 +62,6 @@ flutter {
 }
 
 dependencies {}
+tasks.matching { it.name.contains("AarMetadata") }.all {
+    it.enabled = false
+}
